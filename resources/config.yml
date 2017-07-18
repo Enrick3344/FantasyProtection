@@ -1,0 +1,18 @@
+---
+Prefix: "§7[§dFantasyProtection§7]"
+Hunger:
+ - world
+ - Lobby
+Break-Message: "§cYou are not aloud to break blocks here."
+Break:
+ - world
+ - Lobby
+Place-Message: "§cYou are not aloud to place blocks here."
+Place:
+ - world
+ - Lobby.
+Drop-Message: "§cYou are not aloud to drop items or blocks here."
+Drop:
+ - world
+ - Lobby
+...
