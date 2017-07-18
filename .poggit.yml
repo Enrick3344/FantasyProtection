@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Enrick3344/FantasyProtection
+branches:
+- master
+projects:
+  FantasyProtection:
+    path: ""
+...
