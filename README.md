@@ -1,4 +1,4 @@
-# FantasyProtection   [URL="https://poggit.pmmp.io/ci/Enrick3344/FantasyProtection/FantasyProtection"][IMG]https://poggit.pmmp.io/ci.badge/Enrick3344/FantasyProtection/FantasyProtection[/IMG][/URL]
+# FantasyProtection [![Poggit-CI](https://poggit.pmmp.io/ci.badge/Enrick3344/FantasyProtection/FantasyProtection)](https://poggit.pmmp.io/ci/Enrick3344/FantasyProtection/FantasyProtection)
 # WIP
 
 World Protection Plugins compatible with API3 From Alpha1 to Alpha6. More features will come soon!
