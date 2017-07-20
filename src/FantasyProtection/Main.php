@@ -19,18 +19,18 @@ class Main extends PluginBase implements Listener {
 	public function onEnable(){
 		if(!is_dir($this->getDataFolder())) mkdir($this->getDataFolder());
 		$this->config = new Config($this->getDataFolder()."config.yml", Config::YAML, array(
-		'Prefix' => "§7[§dFantasyProtection§7]",
+		'Prefix' => "&7[&dFantasyProtection&7]",
 		'Hunger' => array(
 		           'world'),
 		'Break' => array(
 		          'world'),
-		'Break-Message' => "§cYou are not aloud to break blocks here!",
+		'Break-Message' => "&cYou are not aloud to break blocks here!",
 		'Place' => array(
 		          'world'),
-		'Place-Message' => "§cYou are not aloud to place blocks here!",
+		'Place-Message' => "&cYou are not aloud to place blocks here!",
 		'Drop' => array(
 			     'world'),
-		'Drop-Message' => "§cYou are not aloud to drop items or blocks here!"
+		'Drop-Message' => "&cYou are not aloud to drop items or blocks here!"
 		));
 		$this->config->save();
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
