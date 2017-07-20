@@ -102,4 +102,3 @@ class Main extends PluginBase implements Listener {
 		$this->getLogger()->notice("FantasyProtection Disabled!");
 	}
 }
-?>
