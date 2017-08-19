@@ -19,7 +19,7 @@ class Command extends Command{
     */
     public function __construct(Main $plugin){
         parent::__construct("protection", "protect world with different feature", null, ["protect"]);
-        $this->setPermission("fantasyplus.command.protection");
+        $this->setPermission("fantasyprotection.command.protection");
         $this->plugin = $plugin;
 	}
 	
