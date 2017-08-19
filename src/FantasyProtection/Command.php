@@ -1,6 +1,6 @@
 <?php 
 
-namespace FantasyPlus\commands;
+namespace FantasyProtection;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -8,9 +8,9 @@ use pocketmine\utils\TextFormat;
 use pocketmine\Player;
 use pocketmine\level\Level;
 //Plugins Files.
-use FantasyPlus\Main;
+use FantasyProtection\Main;
 
-class Protection extends Command{
+class Command extends Command{
 	
 	/** @var Main */
     private $plugin;
