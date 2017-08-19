@@ -29,12 +29,13 @@ class Command extends Command{
 				case "disable":{
                     if(count($args) == 2) {
 						if($args[1] == "place") {  //PLACE
-							$world = $sender->getLevel()->getName();
-							$place = $this->plugin->getConfig()->get("Place");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}
+							$world = $sender->getLevel()->getName();
+							$place = $this->plugin->getConfig()->get("Place");
+							
 							if(in_array($world, $place)){
 								$sender->sendMessage("§5>§c Block Placing Is Already Disabled On This Level.");
 								break;
@@ -48,12 +49,13 @@ class Command extends Command{
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Block Placing on Level " . $level);
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 						}elseif($args[1] == "break"){  //BREAK
-							$world = $sender->getLevel()->getName();
-							$break = $this->plugin->getConfig()->get("Break");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}
+							$world = $sender->getLevel()->getName();
+							$break = $this->plugin->getConfig()->get("Break");
+							
 							if(in_array($world, $break)){
 								$sender->sendMessage("§5>§c Block Breaking Is Already Disabled On This Level.");
 								break;
@@ -66,13 +68,14 @@ class Command extends Command{
 								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Block Breaking on Level " . $level);
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
-						}elseif($args[1] == "hunger"){  //HUNGER 
-							$world = $sender->getLevel()->getName();
-							$hunger = $this->plugin->getConfig()->get("Hunger");
+						}elseif($args[1] == "hunger"){  //HUNGER
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}
+							$world = $sender->getLevel()->getName();
+							$hunger = $this->plugin->getConfig()->get("Hunger");
+							
 							if(in_array($world, $hunger)){
 								$sender->sendMessage("§5>§c Hunger Is Already Disabled On This Level.");
 								break;
@@ -86,12 +89,13 @@ class Command extends Command{
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Hunger on Level " . $level);
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 						}elseif($args[1] == "drop"){  //DROP
-							$world = $sender->getLevel()->getName();
-							$drop = $this->plugin->getConfig()->get("Drop");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}
+							$world = $sender->getLevel()->getName();
+							$drop = $this->plugin->getConfig()->get("Drop");
+							
 							if(in_array($world, $drop)){
 								$sender->sendMessage("§5>§c Items Dropping Is Already Disabled On This Level.");
 								break;
@@ -105,13 +109,14 @@ class Command extends Command{
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Drop on Level " . $level);
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 						}elseif($args[1] == "pvp") {  //PVP
-							$world = $sender->getLevel()->getName();
-							$place = $this->plugin->getConfig()->get("PVP");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}
-							if(in_array($world, $place)){
+							$world = $sender->getLevel()->getName();
+							$pvp = $this->plugin->getConfig()->get("PVP");
+							
+							if(in_array($world, $pvp)){
 								$sender->sendMessage("§5>§c PVP Is Already Disabled On This Level.");
 								break;
 							}
@@ -139,12 +144,13 @@ class Command extends Command{
 				case "enable": {
 					if(count($args) == 2) {
 						if($args[1] == "place") {  //PLACE
-							$world = $sender->getLevel()->getName();
-							$place = $this->plugin->getConfig()->get("Place");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}
+							$world = $sender->getLevel()->getName();
+							$place = $this->plugin->getConfig()->get("Place");
+							
 							if(in_array($world, $place)){
 								$level = $sender->getLevel()->getName();
 								$array = $this->plugin->getConfig()->get("Place");
@@ -163,12 +169,13 @@ class Command extends Command{
 							}
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 					}elseif($args[1] == "break"){  //BREAK
-							$world = $sender->getLevel()->getName();
-							$break = $this->plugin->getConfig()->get("Break");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}	
+							$world = $sender->getLevel()->getName();
+							$break = $this->plugin->getConfig()->get("Break");
+							
 							if(in_array($world, $break)){
 								$level = $sender->getLevel()->getName();
 								$array = $this->plugin->getConfig()->get("Break");
@@ -187,12 +194,13 @@ class Command extends Command{
 							}
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 					}elseif($args[1] == "hunger"){  //HUNGER 
-							$world = $sender->getLevel()->getName();
-							$hunger = $this->plugin->getConfig()->get("Hunger");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}	
+							$world = $sender->getLevel()->getName();
+							$hunger = $this->plugin->getConfig()->get("Hunger");
+							
 							if(in_array($world, $hunger)){
 								$level = $sender->getLevel()->getName();
 								$array = $this->plugin->getConfig()->get("Place");
@@ -211,12 +219,14 @@ class Command extends Command{
 							}
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 					}elseif($args[1] == "drop"){  //DROP
-							$world = $sender->getLevel()->getName();
-							$drop = $this->plugin->getConfig()->get("Drop");
+							
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}	
+							$world = $sender->getLevel()->getName();
+							$drop = $this->plugin->getConfig()->get("Drop");
+							
 							if(in_array($world, $drop)){
 								$level = $sender->getLevel()->getName();
 								$array = $this->plugin->getConfig()->get("Drop");
@@ -235,12 +245,14 @@ class Command extends Command{
 							}
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 					}elseif($args[1] == "pvp"){  //PVP
-							$world = $sender->getLevel()->getName();
-							$drop = $this->plugin->getConfig()->get("PVP");
+					
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}	
+							$world = $sender->getLevel()->getName();
+							$pvp = $this->plugin->getConfig()->get("PVP");
+							
 							if(in_array($world, $pvp)){
 								$level = $sender->getLevel()->getName();
 								$array = $this->plugin->getConfig()->get("PVP");
