@@ -1,5 +1,5 @@
 name: FantasyProtection
-version: 1.0.1
+version: 2.0
 author: Enrick3344
 main: FantasyProtection\Main
 api: [3.0.0-ALPHA7]
@@ -10,4 +10,6 @@ permission:
     fantasyprotection.place.bypass:
         default: op
     fantasyprotection.drop.bypass:
+        default: op
+    fantasyprotection.command.protection:
         default: op
