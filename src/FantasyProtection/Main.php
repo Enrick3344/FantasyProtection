@@ -97,7 +97,7 @@ class Main extends PluginBase implements Listener {
 		$world = $player->getLevel()->getName();
 		$hunger = $this->getConfig()->get("Hunger");
         if(in_array($world, $hunger)){
-             $event->setCancelled(true);
+             $event->setCancelled();
 	    }
 	}
 	
