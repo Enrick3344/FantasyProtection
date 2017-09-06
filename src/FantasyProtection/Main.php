@@ -38,7 +38,7 @@ use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 //Plugin File
-use FantasyProtection\Command;
+use FantasyProtection\ProtectionCommand;
 
 
 class Main extends PluginBase implements Listener {
@@ -59,7 +59,7 @@ class Main extends PluginBase implements Listener {
 	
 	public function loadCommand(){
 		$commands = [
-		"protection" => new Command($this)
+		"protection" => new ProtectionCommand($this)
 		];
 		foreach($commands as $name => $class){
 			$this->getServer()->getCommandMap()->register($name, $class);

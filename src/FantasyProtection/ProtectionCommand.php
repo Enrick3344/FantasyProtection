@@ -32,7 +32,7 @@ use pocketmine\level\Level;
 //Plugins Files.
 use FantasyProtection\Main;
 
-class Command extends Command{
+class ProtectionCommand extends Command{
 	
 	/** @var Main */
     private $plugin;
