@@ -104,11 +104,15 @@ class Main extends PluginBase implements Listener {
 	public function onBreak(BlockBreakEvent $event){
 		$prefix = $this->getConfig()->get("Prefix");
 		$message = $this->getConfig()->get("Break-Message");
+		$lockmessage = $this->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
 		$break = $this->getConfig()->get("Break");
-		
-		if(in_array($world, $break)){
+		$lock = $this->getConfig()->get("Lock");
+		if(in_array($world, $lock)){
+			$event->setCancelled(true);
+			$player->sendMessage($this->translateColors($prefix . " " . $lockmessage));
+		}elseif(in_array($world, $break)){
 			if($player->hasPermission("fantasyplus.break.bypass")){
 				return true;
 			}else{
@@ -121,11 +125,15 @@ class Main extends PluginBase implements Listener {
 	public function onPlace(BlockPlaceEvent $event){
 		$prefix = $this->getConfig()->get("Prefix");
 		$message = $this->getConfig()->get("Place-Message");
+		$lockmessage = $this->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
 		$place = $this->getConfig()->get("Place");
-		
-		if(in_array($world, $place)){
+		$lock = $this->getConfig()->get("Lock");
+		if(in_array($world, $lock)){
+			$event->setCancelled(true);
+			$player->sendMessage($this->translateColors($prefix . " " . $lockmessage));
+		}elseif(in_array($world, $break)){
 			if($player->hasPermission("fantasyprotection.place.bypass")){
 				return true;
 			}else{
