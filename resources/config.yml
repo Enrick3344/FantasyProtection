@@ -11,17 +11,21 @@ Hunger: []
 
 # Break
 Break: []
-Break-Message: "§cYou are not aloud to break blocks here!"
+Break-Message: "§cYou are not allowed to break blocks here!"
 
 # Place
 Place: []
-Place-Message: "§cYou are not aloud to place blocks here!"
+Place-Message: "§cYou are not allowed to place blocks here!"
 
 # Drop
 Drop: []
-Drop-Message: "§cYou are not aloud to drop items or blocks here!"
+Drop-Message: "§cYou are not allowed to drop items or blocks here!"
 
 # PVP
 PVP: []
-PVP-Message: "§cYou are not aloud to PVP here!"
+PVP-Message: "§cYou are not Allowed to PVP here!"
+
+# Lock
+Lock: []
+Lock-Message: §cYou are not allowed to do that here!
 ...
