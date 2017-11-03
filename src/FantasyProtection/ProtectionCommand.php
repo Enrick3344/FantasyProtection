@@ -153,7 +153,31 @@ class ProtectionCommand extends Command{
 							}else{
 								$sender->sendMessage("§5>§c Lock Is Already Disabled On This Level.");
 							}
-						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+						}elseif($args[1] == "god") {  //GOD
+							if(!$sender instanceof Player){
+								$sender->sendMessage("§5>§c Please run this command in-game.");
+								break;
+							}
+							$world = $sender->getLevel()->getName();
+							$god = $this->plugin->getConfig()->get("God");
+							if(in_array($world, $god)){
+								$level = $sender->getLevel()->getName();
+								$array = $this->plugin->getConfig()->get("God");
+								$rm = $sender->getLevel()->getName();
+								$config = [];
+								foreach($array as $value) {
+									if($value != $rm) {
+										$config[] = $value;
+									}
+								}
+								$this->plugin->getConfig()->set("God", $config);
+								$this->plugin->getConfig()->save();
+								$sender->sendMessage("§5>§d You've sucessfully Disabled God on Level " . $level);
+							}else{
+								$sender->sendMessage("§5>§c God Is Already Disabled On This Level.");
+							}
+						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						}elseif($args[1] == "pvp") {  //PVP
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
@@ -175,12 +199,12 @@ class ProtectionCommand extends Command{
 								$sender->sendMessage("§5>§d You've sucessfully Disabled PVP on Level " . $level);
 			    
 						}else{
-							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
+							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|god|hunger|place|pvp|break>");
 							return false;
 						}
 					return true;
 				}else{
-					$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
+					$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|god|hunger|place|pvp|break>");
 					return false;
 				}
 			}
@@ -309,6 +333,25 @@ class ProtectionCommand extends Command{
 								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Enabled Lock on Level " . $level);
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////					
+					}elseif($args[1] == "god"){  //GOD
+							if(!$sender instanceof Player){
+								$sender->sendMessage("§5>§c Please run this command in-game.");
+								break;
+							}
+							$world = $sender->getLevel()->getName();
+							$god = $this->plugin->getConfig()->get("God");
+							if(in_array($world, $god)){
+								$sender->sendMessage("§5>§c God Is Already Enabled On This Level.");
+								break;
+							}
+								$level = $sender->getLevel()->getName();
+								$array = $this->plugin->getConfig()->get("God");
+								$config = $array;
+								$config[] = $sender->getLevel()->getName();
+								$this->plugin->getConfig()->set("God", $config);
+								$this->plugin->getConfig()->save();
+								$sender->sendMessage("§5>§d You've sucessfully Enabled God on Level " . $level);
+					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 					}elseif($args[1] == "pvp"){  //PVP
 					
 							if(!$sender instanceof Player){
@@ -336,14 +379,14 @@ class ProtectionCommand extends Command{
 							}
 						}
 					}else{
-							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|lock|pvp|break>");
+							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|god|hunger|place|lock|pvp|break>");
 							return false;
 						}
 				}
 				break;
 			}
 		}else{
-			$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|lock|pvp|break>");
+			$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|god|hunger|place|lock|pvp|break>");
 			return false;
 		}
 		return true;
