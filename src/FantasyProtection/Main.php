@@ -133,7 +133,7 @@ class Main extends PluginBase implements Listener {
 		if(in_array($world, $lock)){
 			$event->setCancelled(true);
 			$player->sendMessage($this->translateColors($prefix . " " . $lockmessage));
-		}elseif(in_array($world, $break)){
+		}elseif(in_array($world, $place)){
 			if($player->hasPermission("fantasyprotection.place.bypass")){
 				return true;
 			}else{
