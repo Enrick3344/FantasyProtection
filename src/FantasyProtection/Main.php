@@ -161,10 +161,13 @@ class Main extends PluginBase implements Listener {
 	}
 	
 	public function onHurt(EntityDamageEvent $event){
-		$world = $player->getLevel()->getName();
-		$god = $this->getConfig()->get("God");
-		if(in_array($world, $god)){
-			$event->setCancelled();
+		if($event->getEntity() instanceof Player){
+			$player = $event->getEntity();
+			$world = $player->getLevel()->getName();
+			$god = $this->getConfig()->get("God");
+			if(in_array($world, $god)){
+				$event->setCancelled();
+			}
 		}
 		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
 			if($event->getDamager() instanceof Player){
