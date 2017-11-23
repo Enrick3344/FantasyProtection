@@ -40,67 +40,67 @@ class EventListener implements Listener{
 	public function onExhaust(PlayerExhaustEvent $event){
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$hunger = $this->getConfig()->get("Hunger");
+		$hunger = $this->plugin->getConfig()->get("Hunger");
         	if(in_array($world, $hunger)){
              		$event->setCancelled(true);
 	      	}
 	 }
 	
 	public function onBreak(BlockBreakEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Break-Message");
+		$prefix = $this->plugin->getConfig()->get("Prefix");
+		$message = $this->plugin->getConfig()->get("Break-Message");
 		$lockmessage = $this->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$break = $this->getConfig()->get("Break");
-		$lock = $this->getConfig()->get("Lock");
+		$break = $this->plugin->getConfig()->get("Break");
+		$lock = $this->plugin->getConfig()->get("Lock");
 		if(in_array($world, $lock)){
 			$event->setCancelled(true);
-			$player->sendMessage($this->translateColors($prefix . " " . $lockmessage));
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $lockmessage));
 		}elseif(in_array($world, $break)){
 			if($player->hasPermission("fantasyplus.break.bypass")){
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($this->translateColors($prefix . " " . $message));
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $message));
 			}
 		}
 	}
 	
 	public function onPlace(BlockPlaceEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Place-Message");
-		$lockmessage = $this->getConfig()->get("Lock-Message");
+		$prefix = $this-plugin->>getConfig()->get("Prefix");
+		$message = $this->plugin->getConfig()->get("Place-Message");
+		$lockmessage = $this->plugin->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$place = $this->getConfig()->get("Place");
-		$lock = $this->getConfig()->get("Lock");
+		$place = $this->plugin->getConfig()->get("Place");
+		$lock = $this->plugin->getConfig()->get("Lock");
 		if(in_array($world, $lock)){
 			$event->setCancelled(true);
-			$player->sendMessage($this->translateColors($prefix . " " . $lockmessage));
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $lockmessage));
 		}elseif(in_array($world, $break)){
 			if($player->hasPermission("fantasyprotection.place.bypass")){
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($this->translateColors($prefix . " " . $message));
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $message));
 			}
 		}
 	}
 	
 	public function onDrop(PlayerDropItemEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Drop-Message");
+		$prefix = $this->plugin->getConfig()->get("Prefix");
+		$message = $this->plugin->getConfig()->get("Drop-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$drop = $this->getConfig()->get("Drop");
+		$drop = $this->plugin->getConfig()->get("Drop");
 		
 		if(in_array($world, $drop)){
 			if($player->hasPermission("fantasyprotection.drop.bypass")){
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($this->translateColors($prefix . " " . $message));
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $message));
 			}
 		}
 	}
@@ -108,29 +108,34 @@ class EventListener implements Listener{
 	public function onLevelChange(EntityLevelChangeEvent $event){
 		$player = $event->getEntity();
 		$target = $event->getTarget()->getName();
-		$close = $this->getConfig()->get("Close");
+		$close = $this->plugin->getConfig()->get("Close");
+		$message = $this->plugin->getConfig()->get("Close-Message");
 		if($player instanceof Player){
 			if(in_array($target, $close)){
-				$event->setCancelled();
-				$player->sendMessage("§5>§d You cannot teleport to this world. This world is Closed.");	
+				if($player->hasPermission("fantasyprotection.close.bypass")){
+					return true;	
+				}else{
+					$event->setCancelled();
+					$player->sendMessage($this->plugin->translateColors($prefix . " " . $message));
+				}
 			}
 		}
 	}
 	
 	public function onHurt(EntityDamageEvent $event){
 		$world = $player->getLevel()->getName();
-		$damage = $this->getConfig()->get("Damage");
+		$damage = $this->plugin->getConfig()->get("Damage");
 		if(in_array($world, $damage)){
 			$event->setCancelled();
 		}
 		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
 			if($event->getDamager() instanceof Player){
-				$prefix = $this->getConfig()->get("Prefix");
-				$message = $this->getConfig()->get("PVP-Message");
-				$pvp = $this->getConfig()->get("PVP");
+				$prefix = $this->plugin->getConfig()->get("Prefix");
+				$message = $this->plugin->getConfig()->get("PVP-Message");
+				$pvp = $this->plugin->getConfig()->get("PVP");
 				$player = $event->getDamager();
 				if(in_array($world, $pvp)){
-					$event->getDamager()->sendMessage($this->translateColors($prefix . " " . $message));
+					$event->getDamager()->sendMessage($this->plugin->translateColors($prefix . " " . $message));
 					$event->setCancelled();
 				}
 			}
