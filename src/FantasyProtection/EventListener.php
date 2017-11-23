@@ -68,7 +68,7 @@ class EventListener implements Listener{
 	}
 	
 	public function onPlace(BlockPlaceEvent $event){
-		$prefix = $this-plugin->>getConfig()->get("Prefix");
+		$prefix = $this->plugin->getConfig()->get("Prefix");
 		$message = $this->plugin->getConfig()->get("Place-Message");
 		$lockmessage = $this->plugin->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
