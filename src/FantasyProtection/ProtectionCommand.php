@@ -35,14 +35,14 @@ use FantasyProtection\Main;
 class ProtectionCommand extends Command{
 	
 	/** @var Main */
-    private $plugin;
-    /**
-     * @param Main $plugin
-    */
-    public function __construct(Main $plugin){
-        parent::__construct("protection", "protect world with different feature", null, ["protect"]);
-        $this->setPermission("fantasyprotection.command.protection");
-        $this->plugin = $plugin;
+    	private $plugin;
+    	/**
+    	 * @param Main $plugin
+    	*/
+    	public function __construct(Main $plugin){
+        	parent::__construct("protection", "Protect your worlds with differents features", null, ["protect"]);
+        	$this->setPermission("fantasyprotection.command.protection");
+        	$this->plugin = $plugin;
 	}
 	
 	public function execute(CommandSender $sender, string $label, array $args) : bool{
