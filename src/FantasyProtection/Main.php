@@ -35,6 +35,7 @@ use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityLevelChangeEvent;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 //Plugin File
@@ -156,6 +157,17 @@ class Main extends PluginBase implements Listener {
 			}else{
 			$event->setCancelled();
 			$player->sendMessage($this->translateColors($prefix . " " . $message));
+			}
+		}
+	}
+	
+	public function onLevelChange(EntityLevelChangeEvent $event){
+		$player = $event->getEntity();
+		$target = $event->getTarget();
+		$close = $this->getConfig()->get("Close");
+		if($player instanceof Player){
+			if($target->getLevel()->getName() === $close){
+				$player->sendMessage("§5>§d You cannot teleport to this world. This world is Closed.");	
 			}
 		}
 	}
