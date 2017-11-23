@@ -45,12 +45,10 @@ use FantasyProtection\ProtectionCommand;
 class Main extends PluginBase implements Listener {
 	
 	public function onEnable(){
+		@mkdir($this->getDataFolder());
+        	$this->saveDefaultConfig();
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
 		$this->loadCommand();
-		if(!file_exists($this->getDataFolder() . "config.yml")){
-     			 @mkdir($this->getDataFolder());
-     			 file_put_contents($this->getDataFolder()."config.yml", $this->getResource("config.yml"));
-   		 }
 		$this->getLogger()->notice("FantasyProtection Enabled!");;
 	}
 	
