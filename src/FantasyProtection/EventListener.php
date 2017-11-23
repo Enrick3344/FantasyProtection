@@ -37,6 +37,15 @@ use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityLevelChangeEvent;
 
 class EventListener implements Listener{
+	
+	/** @var Main */
+    	private $plugin;
+    	/**
+     	* @param Main $plugin
+     	*/
+    	public function __construct(Main $plugin) {
+        	$this->plugin = $plugin;
+    	}
 	public function onExhaust(PlayerExhaustEvent $event){
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
