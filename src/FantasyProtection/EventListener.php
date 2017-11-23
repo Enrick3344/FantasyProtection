@@ -58,7 +58,7 @@ class EventListener implements Listener{
 	public function onBreak(BlockBreakEvent $event){
 		$prefix = $this->plugin->getConfig()->get("Prefix");
 		$message = $this->plugin->getConfig()->get("Break-Message");
-		$lockmessage = $this->getConfig()->get("Lock-Message");
+		$lockmessage = $this->plugin->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
 		$break = $this->plugin->getConfig()->get("Break");
