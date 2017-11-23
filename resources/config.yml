@@ -29,6 +29,9 @@ PVP-Message: "§cYou are not Allowed to PVP here!"
 Lock: []
 Lock-Message: §cYou are not allowed to do that here!
 
-# God
-God: []
+# Damage
+Damage: []
+
+# Close
+Close: []
 ...
