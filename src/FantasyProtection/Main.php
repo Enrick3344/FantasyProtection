@@ -167,6 +167,7 @@ class Main extends PluginBase implements Listener {
 		$close = $this->getConfig()->get("Close");
 		if($player instanceof Player){
 			if($target->getName() === $close){
+				$event->setCancelled();
 				$player->sendMessage("§5>§d You cannot teleport to this world. This world is Closed.");	
 			}
 		}
