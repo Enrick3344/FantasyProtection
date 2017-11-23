@@ -163,10 +163,10 @@ class Main extends PluginBase implements Listener {
 	
 	public function onLevelChange(EntityLevelChangeEvent $event){
 		$player = $event->getEntity();
-		$target = $event->getTarget();
+		$target = $event->getTarget()->getName();
 		$close = $this->getConfig()->get("Close");
 		if($player instanceof Player){
-			if($target->getName() === $close){
+			if(in_array($target, $close)){
 				$event->setCancelled();
 				$player->sendMessage("§5>§d You cannot teleport to this world. This world is Closed.");	
 			}
