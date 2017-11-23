@@ -132,10 +132,13 @@ class EventListener implements Listener{
 	}
 	
 	public function onHurt(EntityDamageEvent $event){
-		$world = $player->getLevel()->getName();
-		$damage = $this->plugin->getConfig()->get("Damage");
-		if(in_array($world, $damage)){
-			$event->setCancelled();
+		$player = $event->getEntity();
+		if($player instanceof Player){
+			$world = $player->getLevel()->getName();
+			$damage = $this->plugin->getConfig()->get("Damage");
+			if(in_array($world, $damage)){
+				$event->setCancelled();
+			}
 		}
 		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
 			if($event->getDamager() instanceof Player){
