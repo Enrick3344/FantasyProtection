@@ -25,31 +25,21 @@
 namespace FantasyProtection;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\Server;
-use pocketmine\event\block\BlockPlaceEvent;
-use pocketmine\event\block\BlockBreakEvent;
-use pocketmine\event\player\PlayerExhaustEvent;
-use pocketmine\event\player\PlayerDropItemEvent;
-use pocketmine\event\player\PlayerInteractEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 //Plugin File
 use FantasyProtection\ProtectionCommand;
 
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase{
 	
 	public function onEnable(){
-		$this->getServer()->getPluginManager()->registerEvents($this,$this);
+		@mkdir($this->getDataFolder());
+        	$this->saveDefaultConfig();
+		$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 		$this->loadCommand();
-		if(!file_exists($this->getDataFolder() . "config.yml")){
-     			 @mkdir($this->getDataFolder());
-     			 file_put_contents($this->getDataFolder()."config.yml", $this->getResource("config.yml"));
-   		 }
 		$this->getLogger()->notice("FantasyProtection Enabled!");;
 	}
 	
@@ -87,99 +77,5 @@ class Main extends PluginBase implements Listener {
 		$msg = str_replace("&l",TextFormat::BOLD,$msg);
 		$msg = str_replace("&r",TextFormat::RESET,$msg);
 		return $msg;
-	}
-	
-	
-	//PROTECTION EVENTS.
-	
-	public function onExhaust(PlayerExhaustEvent $event){
-		$player = $event->getPlayer();
-		$world = $player->getLevel()->getName();
-		$hunger = $this->getConfig()->get("Hunger");
-        if(in_array($world, $hunger)){
-             $event->setCancelled(true);
-	    }
-	}
-	
-	public function onBreak(BlockBreakEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Break-Message");
-		$lockmessage = $this->getConfig()->get("Lock-Message");
-		$player = $event->getPlayer();
-		$world = $player->getLevel()->getName();
-		$break = $this->getConfig()->get("Break");
-		$lock = $this->getConfig()->get("Lock");
-		if(in_array($world, $lock)){
-			$event->setCancelled(true);
-			$player->sendMessage($this->translateColors($prefix . " " . $lockmessage));
-		}elseif(in_array($world, $break)){
-			if($player->hasPermission("fantasyplus.break.bypass")){
-				return true;
-			}else{
-			$event->setCancelled();
-			$player->sendMessage($this->translateColors($prefix . " " . $message));
-			}
-		}
-	}
-	
-	public function onPlace(BlockPlaceEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Place-Message");
-		$lockmessage = $this->getConfig()->get("Lock-Message");
-		$player = $event->getPlayer();
-		$world = $player->getLevel()->getName();
-		$place = $this->getConfig()->get("Place");
-		$lock = $this->getConfig()->get("Lock");
-		if(in_array($world, $lock)){
-			$event->setCancelled(true);
-			$player->sendMessage($this->translateColors($prefix . " " . $lockmessage));
-		}elseif(in_array($world, $place)){
-			if($player->hasPermission("fantasyprotection.place.bypass")){
-				return true;
-			}else{
-			$event->setCancelled();
-			$player->sendMessage($this->translateColors($prefix . " " . $message));
-			}
-		}
-	}
-	
-	public function onDrop(PlayerDropItemEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Drop-Message");
-		$player = $event->getPlayer();
-		$world = $player->getLevel()->getName();
-		$drop = $this->getConfig()->get("Drop");
-		
-		if(in_array($world, $drop)){
-			if($player->hasPermission("fantasyprotection.drop.bypass")){
-				return true;
-			}else{
-			$event->setCancelled();
-			$player->sendMessage($this->translateColors($prefix . " " . $message));
-			}
-		}
-	}
-	
-	public function onHurt(EntityDamageEvent $event){
-		if($event->getEntity() instanceof Player){
-			$player = $event->getEntity();
-			$world = $player->getLevel()->getName();
-			$god = $this->getConfig()->get("God");
-			if(in_array($world, $god)){
-				$event->setCancelled();
-			}
-		}
-		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
-			if($event->getDamager() instanceof Player){
-				$prefix = $this->getConfig()->get("Prefix");
-				$message = $this->getConfig()->get("PVP-Message");
-				$pvp = $this->getConfig()->get("PVP");
-				$player = $event->getDamager();
-				if(in_array($world, $pvp)){
-					$event->getDamager()->sendMessage($this->translateColors($prefix . " " . $message));
-					$event->setCancelled();
-				}
-			}
-		}
 	}
 }

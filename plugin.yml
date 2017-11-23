@@ -13,3 +13,5 @@ permission:
         default: op
     fantasyprotection.command.protection:
         default: op
+    fantasyprotection.close.bypass:
+        default: false
