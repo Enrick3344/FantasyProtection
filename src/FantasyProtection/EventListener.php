@@ -37,13 +37,13 @@ use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityLevelChangeEvent;
 
 class EventListener implements Listener{
-  public function onExhaust(PlayerExhaustEvent $event){
+	public function onExhaust(PlayerExhaustEvent $event){
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
 		$hunger = $this->getConfig()->get("Hunger");
-        if(in_array($world, $hunger)){
-             $event->setCancelled(true);
-	      }
+        	if(in_array($world, $hunger)){
+             		$event->setCancelled(true);
+	      	}
 	 }
 	
 	public function onBreak(BlockBreakEvent $event){
