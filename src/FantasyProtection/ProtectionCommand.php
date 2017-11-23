@@ -282,7 +282,7 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("Lock", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage(§r§f`•"§5>§b You've sucessfully Unlocked Level " . $level);
+									$sender->sendMessage("§r§f`•§5>§b You've sucessfully Unlocked Level " . $level);
 								}else{
 									$sender->sendMessage("§r§f`•§5>§c Level ".$level." Was not Locked!");
 								}
