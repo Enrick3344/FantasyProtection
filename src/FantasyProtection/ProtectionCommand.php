@@ -66,9 +66,9 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("Place", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage("§5>§b You've sucessfully Toggled On Block Placing on Level " . $level);
+									$sender->sendMessage("§r§f`•§5>§b You've sucessfully Toggled On Block Placing on Level " . $level);
 								}else{
-									$sender->sendMessage("§5>§c Block Placing Is Already Toggled On on This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Block Placing Is Already Toggled On on This Level.");
 								}	
 							}
 							break;
@@ -76,7 +76,7 @@ class ProtectionCommand extends Command{
 								$world = $sender->getLevel()->getName();
 								$place = $this->plugin->getConfig()->get("Place");
 								if(in_array($world, $place)){
-									$sender->sendMessage("§5>§c Block Placing Is Already Toggled Off On This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Block Placing Is Already Toggled Off On This Level.");
 									break;
 								}
 								$level = $sender->getLevel()->getName();
@@ -85,13 +85,13 @@ class ProtectionCommand extends Command{
 								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("Place", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§b You've sucessfully Toggled Off Block Placing on Level " . $level);
+								$sender->sendMessage("§r§f`•§5>§b You've sucessfully Toggled Off Block Placing on Level " . $level);
 							}
 							break;
 						}
 						return true;
 					}else{
-						$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+						$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 						return false;
 					}
 				}
@@ -115,9 +115,9 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("Break", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage("§5>§b You've sucessfully Toggled On Block Breaking on Level " . $level);
+									$sender->sendMessage("§r§f`•§5>§b You've sucessfully Toggled On Block Breaking on Level " . $level);
 								}else{
-									$sender->sendMessage("§5>§c Block Breaking Is Already Toggled On on This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Block Breaking Is Already Toggled On on This Level.");
 								}
 							}
 							break;
@@ -125,7 +125,7 @@ class ProtectionCommand extends Command{
 								$world = $sender->getLevel()->getName();
 								$break = $this->plugin->getConfig()->get("Break");
 								if(in_array($world, $break)){
-									$sender->sendMessage("§5>§c Block Breaking Is Already Toggled Off On This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Block Breaking Is Already Toggled Off On This Level.");
 									break;
 								}
 								$level = $sender->getLevel()->getName();
@@ -134,13 +134,13 @@ class ProtectionCommand extends Command{
 								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("Break", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§b You've sucessfully Toggled Off Block Breaking on Level " . $level);
+								$sender->sendMessage("§r§f`•§5>§b You've sucessfully Toggled Off Block Breaking on Level " . $level);
 							}
 							break;
 						}
 						return true;
 					}else{
-						$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+						$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 						return false;	
 					}
 				}
@@ -164,9 +164,9 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("Hunger", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage("§5>§b You've sucessfully Toggled On Hunger on Level " . $level);
+									$sender->sendMessage("§r§f`•§5>§b You've sucessfully Toggled On Hunger on Level " . $level);
 								}else{
-									$sender->sendMessage("§5>§c Hunger Is Already Toggled On on This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Hunger Is Already Toggled On on This Level.");
 								}
 							}
 							break;
@@ -174,7 +174,7 @@ class ProtectionCommand extends Command{
 								$world = $sender->getLevel()->getName();
 								$hunger = $this->plugin->getConfig()->get("Hunger");
 								if(in_array($world, $hunger)){
-									$sender->sendMessage("§5>§c Hunger Is Already Toggled Off On This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Hunger Is Already Toggled Off On This Level.");
 									break;
 								}
 								$level = $sender->getLevel()->getName();
@@ -183,13 +183,13 @@ class ProtectionCommand extends Command{
 								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("Hunger", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§b You've sucessfully Toggled Off Hunger on Level " . $level);
+								$sender->sendMessage("§r§f`•§5>§b You've sucessfully Toggled Off Hunger on Level " . $level);
 							}
 							break;
 						}
 						return true;
 					}else{
-						$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+						$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 						return false;
 					}
 				}
@@ -213,9 +213,9 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("Drop", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage("§5>§b You've sucessfully Toggled On items Dropping on Level " . $level);
+									$sender->sendMessage("§r§f`•§5>§b You've sucessfully Toggled On items Dropping on Level " . $level);
 								}else{
-									$sender->sendMessage("§5>§c Items Dropping Is Already Toggled On on This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Items Dropping Is Already Toggled On on This Level.");
 								}
 							}
 							break;
@@ -224,7 +224,7 @@ class ProtectionCommand extends Command{
 								$drop = $this->plugin->getConfig()->get("Drop");
 							
 								if(in_array($world, $drop)){
-									$sender->sendMessage("§5>§c Items Dropping Is Already Toggled Off On This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Items Dropping Is Already Toggled Off On This Level.");
 									break;
 								}
 								$level = $sender->getLevel()->getName();
@@ -233,13 +233,13 @@ class ProtectionCommand extends Command{
 								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("Drop", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§d You've sucessfully Toggled Off Drop on Level " . $level);
+								$sender->sendMessage("§r§f`•§5>§d You've sucessfully Toggled Off Drop on Level " . $level);
 							}
 							break;
 						}
 						return true;
 					}else{
-						$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+						$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 						return false;
 					}
 				}
@@ -251,7 +251,7 @@ class ProtectionCommand extends Command{
 								$world = $sender->getLevel()->getName();
 								$lock = $this->plugin->getConfig()->get("Lock");
 								if(in_array($world, $lock)){
-									$sender->sendMessage("§5>§c Level ".$level." Is Already Locked!");
+									$sender->sendMessage("§r§f`•§5>§c Level ".$level." Is Already Locked!");
 									break;
 								}
 								$level = $sender->getLevel()->getName();
@@ -260,12 +260,12 @@ class ProtectionCommand extends Command{
 								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("Lock", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§b You've sucessfully Locked Level " . $level);
+								$sender->sendMessage("§r§f`•§5>§b You've sucessfully Locked Level " . $level);
 							}
 							break;
 							case "off":{
 								if(!$sender instanceof Player){
-									$sender->sendMessage("§5>§c Please run this command in-game.");
+									$sender->sendMessage("§r§f`•§5>§c Please run this command in-game.");
 									break;
 								}
 								$world = $sender->getLevel()->getName();
@@ -282,16 +282,16 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("Lock", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage("§5>§b You've sucessfully Unlocked Level " . $level);
+									$sender->sendMessage(§r§f`•"§5>§b You've sucessfully Unlocked Level " . $level);
 								}else{
-									$sender->sendMessage("§5>§c Level ".$level." Was not Locked!");
+									$sender->sendMessage("§r§f`•§5>§c Level ".$level." Was not Locked!");
 								}
 							}
 							break;
 						}
 						return true;
 					}else{
-						$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+						$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 						return false;
 					}
 				}
@@ -314,9 +314,9 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("PVP", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage("§5>§d You've sucessfully Toggled On  PVP on Level " . $level);
+									$sender->sendMessage("§r§f`•§5>§d You've sucessfully Toggled On  PVP on Level " . $level);
 								}else{
-									$sender->sendMessage("§5>§c PVP Is Already Toggled On on This Level.");
+									$sender->sendMessage("§r§f`•§5>§c PVP Is Already Toggled On on This Level.");
 								}
 							}
 							break;
@@ -325,7 +325,7 @@ class ProtectionCommand extends Command{
 								$pvp = $this->plugin->getConfig()->get("PVP");
 							
 								if(in_array($world, $pvp)){
-									$sender->sendMessage("§5>§c PVP Is Already Toggled Off On This Level.");
+									$sender->sendMessage("§r§f`•§5>§c PVP Is Already Toggled Off On This Level.");
 									break;
 								}
 								$level = $sender->getLevel()->getName();
@@ -334,14 +334,14 @@ class ProtectionCommand extends Command{
 								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("PVP", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§d You've sucessfully Toggled Off PVP on Level " . $level);
+								$sender->sendMessage("§r§f`•§5>§d You've sucessfully Toggled Off PVP on Level " . $level);
 			    
 							}
 							break;
 						}
 						return true;
 					}else{
-						$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+						$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 						return false;
 					}
 				}
@@ -364,9 +364,9 @@ class ProtectionCommand extends Command{
 									}
 									$this->plugin->getConfig()->set("Damage", $config);
 									$this->plugin->getConfig()->save();
-									$sender->sendMessage("§5>§d You've sucessfully Toggled Off Damage on Level " . $level);
+									$sender->sendMessage("§r§f`•§5>§d You've sucessfully Toggled Off Damage on Level " . $level);
 								}else{
-									$sender->sendMessage("§5>§c Damages Are Already Toggled Off On This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Damages Are Already Toggled Off On This Level.");
 								}
 							}
 							break;
@@ -374,7 +374,7 @@ class ProtectionCommand extends Command{
 								$world = $sender->getLevel()->getName();
 								$god = $this->plugin->getConfig()->get("Damage");
 								if(in_array($world, $god)){
-									$sender->sendMessage("§5>§c Damages Are Already Toggled On on This Level.");
+									$sender->sendMessage("§r§f`•§5>§c Damages Are Already Toggled On on This Level.");
 									break;
 								}
 								$level = $sender->getLevel()->getName();
@@ -383,13 +383,13 @@ class ProtectionCommand extends Command{
 								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("Damage", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§d You've sucessfully Toggled On Damage on Level " . $level);
+								$sender->sendMessage("§r§f`•§5>§d You've sucessfully Toggled On Damage on Level " . $level);
 							}
 							break;
 						}
 						return true;
 					}else{
-						$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+						$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 						return false;
 					}
 				}
@@ -397,7 +397,7 @@ class ProtectionCommand extends Command{
 			}
 			return true;
 		}else{
-			$sender->sendMessage("§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
+			$sender->sendMessage("§r§f`•§l§dUsage§5>§r§b /protect <breaking|placing|hunger|locked|damage|pvp|dropping> <on|off>");
 			return false;
 		}
 	}
